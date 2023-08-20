@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+   import { Card } from 'react-bootstrap';
+   import Nom from './Nom';
+   import Prix from './Prix';
+   import Description from './Description';
+   import Image from './Image'; // Assuming the actual file is named Image.js
+   import product from './Product'; // Assuming the actual file is named product.js
+   import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+   const App = () => {
+     const firstName = "Libasse Dia"; 
 
-export default App;
+     return (
+        <>
+       <div className="App">
+          <Card>
+           <Card.Body>
+             <Image src={product.image} />
+             <Nom name={product.name} />
+             <Prix price={product.price} />
+             <Description description={product.description} />
+           </Card.Body>
+         </Card>
+         <p className="greeting">
+           {firstName ? `Hello, ${firstName}!` : "Hello, there!"}
+         </p>
+       </div>
+       </>
+     );
+   };
+
+   export default App;
